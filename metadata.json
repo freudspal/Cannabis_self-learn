@@ -1,0 +1,6 @@
+{
+  "name": "Biological Explanations of Schizophrenia: Cannabinoid Hypothesis",
+  "description": "Interactive WJEC Eduqas A-Level Psychology revision tool on Cannabis & Schizophrenia featuring synapse animations, dopamine pathway models, empirical studies (Caspi, Ashtari, Murray, etc.), CB1/CB2 receptor map, THC:CBD ratio tools, risk scenario generator, glossary, and audio vibes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
