@@ -105,7 +105,7 @@ export const GLOSSARY_ITEMS: GlossaryItem[] = [
     term: 'Diathesis-Stress Model',
     category: 'Clinical Term',
     definition: 'Psychological model stating a vulnerability (diathesis) combined with an environmental stressor triggers a mental disorder.',
-    roleInSchizophrenia: 'Genetic vulnerability (e.g. AKT1 C/C allele in Caspi 2005) + Environmental stressor (adolescent high-THC cannabis) = Schizophrenia onset.',
+    roleInSchizophrenia: 'Genetic vulnerability (e.g. COMT Val/Val allele in Caspi 2005 or AKT1 C/C allele in van Winkel 2011) + Environmental stressor (adolescent high-THC cannabis) = Schizophrenia onset.',
     pronunciation: 'Die-ath-e-sis Stress',
     memoryHook: 'Genetics (Diathesis) + Cannabis (Stress) = Psychosis'
   },
@@ -113,10 +113,19 @@ export const GLOSSARY_ITEMS: GlossaryItem[] = [
     id: 'akt1-gene',
     term: 'AKT1 Gene',
     category: 'Methodology',
-    definition: 'A gene coding for an enzyme involved in dopamine signaling cascades in the striatum and prefrontal cortex.',
-    roleInSchizophrenia: 'Caspi et al. (2005) proved that individuals with the C/C genotype on the AKT1 gene have a 7x risk of psychosis if using adolescent cannabis.',
+    definition: 'A gene coding for an enzyme involved in dopamine signaling cascades in the striatum.',
+    roleInSchizophrenia: 'van Winkel et al. (2011) proved that individuals with the C/C genotype on the AKT1 gene have a 7x increased risk of psychosis if using daily cannabis.',
     pronunciation: 'A-K-T-1 Gene',
-    memoryHook: 'AKT1 C/C = 7x Risk with Skunk'
+    memoryHook: 'AKT1 C/C = 7x Risk with Daily Use (van Winkel 2011)'
+  },
+  {
+    id: 'comt-gene',
+    term: 'COMT Gene (Catechol-O-Methyltransferase)',
+    category: 'Methodology',
+    definition: 'A gene coding for the COMT enzyme, which regulates extracellular dopamine breakdown in the prefrontal cortex.',
+    roleInSchizophrenia: 'Caspi et al. (2005) demonstrated that individuals carrying the COMT Val/Val genotype who used cannabis during adolescence had a significantly increased risk of developing adult schizophreniform disorder.',
+    pronunciation: 'C-O-M-T Gene',
+    memoryHook: 'COMT Val/Val = Prefrontal Dopamine Disruption (Caspi 2005)'
   },
   {
     id: 'positive-symptoms',

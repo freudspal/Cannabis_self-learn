@@ -41,7 +41,7 @@ export const StudiesLibrary: React.FC<StudiesLibraryProps> = ({ initialStudyId }
               Core Research Studies Library
             </h2>
             <p className="mt-1 text-sm text-slate-300 max-w-2xl">
-              Master the 7 essential research studies for A-Level Psychology. Includes aims, methodologies, key findings, and rigorous AO3 evaluation points.
+              Master the 8 essential research studies for A-Level Psychology. Includes aims, methodologies, key findings, and rigorous AO3 evaluation points.
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export const StudiesLibrary: React.FC<StudiesLibraryProps> = ({ initialStudyId }
         {/* Left Study Cards List */}
         <div className="lg:col-span-5 space-y-3">
           <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2 mb-2">
-            <BookOpen className="w-4 h-4" /> 7 Key Research Papers (Eduqas Spec):
+            <BookOpen className="w-4 h-4" /> 8 Key Research Papers (Eduqas / AQA Spec):
           </h3>
 
           <div className="space-y-2.5 max-h-[620px] overflow-y-auto pr-1">

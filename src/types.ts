@@ -85,6 +85,7 @@ export interface RiskAnalysisResult {
   percentageIncrease: number;
   keyContributingFactors: string[];
   caspiReference: string;
+  vanWinkelReference?: string;
   murrayReference: string;
   examEvaluationNote: string;
 }

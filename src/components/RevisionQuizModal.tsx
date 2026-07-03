@@ -13,7 +13,7 @@ interface Question {
 const QUIZ_QUESTIONS: Question[] = [
   {
     id: 1,
-    question: "According to Caspi et al. (2005), which gene variant combined with adolescent cannabis use produced a 7x increase in psychosis risk?",
+    question: "According to van Winkel et al. (2011), which gene genotype combined with daily cannabis use produced a 7x increase in psychosis risk?",
     options: [
       "COMT Val/Val genotype",
       "AKT1 C/C genotype",
@@ -21,10 +21,22 @@ const QUIZ_QUESTIONS: Question[] = [
       "MAOA low activity gene"
     ],
     correctIndex: 1,
-    explanation: "Correct! Participants carrying the AKT1 C/C homozygous genotype who used daily cannabis during adolescence had a 7.0x higher risk of schizophrenia symptoms."
+    explanation: "Correct! van Winkel et al. (2011) proved that participants carrying the AKT1 C/C homozygous genotype who used daily cannabis faced a 7.0x higher risk of psychosis."
   },
   {
     id: 2,
+    question: "According to Caspi et al. (2005), which gene variant interacts with adolescent cannabis use to significantly increase the risk of adult schizophreniform disorder?",
+    options: [
+      "COMT Val/Val genotype",
+      "AKT1 T/T genotype",
+      "DRD2 A1 allele",
+      "BDNF Val66Met"
+    ],
+    correctIndex: 0,
+    explanation: "Correct! Caspi et al. (2005) demonstrated that adolescent cannabis users carrying the COMT Val/Val genotype had a significantly higher risk of adult schizophreniform disorder compared to Met/Met carriers."
+  },
+  {
+    id: 3,
     question: "What primary neurochemical effect occurs when THC binds to pre-synaptic CB1 receptors on GABAergic interneurons in the VTA?",
     options: [
       "It stimulates GABA release, shutting down dopamine neurons",
@@ -36,7 +48,7 @@ const QUIZ_QUESTIONS: Question[] = [
     explanation: "Correct! THC causes depolarization-induced suppression of inhibition by cutting off GABA release ('the brakes'), allowing dopamine neurons to overfire into the mesolimbic pathway."
   },
   {
-    id: 3,
+    id: 4,
     question: "How does CBD (Cannabidiol) protect against the psychotogenic effects of high-THC strains?",
     options: [
       "It acts as a negative allosteric modulator at CB1 receptors, altering their shape",
@@ -48,7 +60,7 @@ const QUIZ_QUESTIONS: Question[] = [
     explanation: "Correct! CBD binds to an allosteric site on CB1 receptors, changing their shape so THC cannot bind as effectively, dampening paranoia and psychotic symptoms."
   },
   {
-    id: 4,
+    id: 5,
     question: "Which dopaminergic pathway hyperactivity is responsible for POSITIVE symptoms (hallucinations & delusions)?",
     options: [
       "Nigrostriatal pathway",
@@ -60,7 +72,7 @@ const QUIZ_QUESTIONS: Question[] = [
     explanation: "Correct! Hyper-dopaminergia in the Mesolimbic pathway (VTA to Nucleus Accumbens/Limbic system) triggers positive symptoms like auditory voices and persecutory delusions."
   },
   {
-    id: 5,
+    id: 6,
     question: "What neuroimaging technique did Ashtari et al. (2009) use to demonstrate white matter tract damage in heavy adolescent cannabis users?",
     options: [
       "Positron Emission Tomography (PET)",
@@ -72,7 +84,7 @@ const QUIZ_QUESTIONS: Question[] = [
     explanation: "Correct! Ashtari et al. (2009) used Diffusion Tensor Imaging (DTI) to reveal structural abnormalities and reduced fractional anisotropy in fronto-temporal white matter tracts."
   },
   {
-    id: 6,
+    id: 7,
     question: "According to Murray et al. (2016), what percentage of first-episode psychosis cases in South London were attributable to high-potency Skunk?",
     options: [
       "5%",
@@ -151,7 +163,7 @@ export const RevisionQuizModal: React.FC<RevisionQuizModalProps> = ({ isOpen, on
         {/* Modal Header */}
         <div className="border-b border-slate-800 pb-3">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 text-[11px] font-mono font-bold mb-1">
-            <Award className="w-3.5 h-3.5" /> Psychology Knowledge Check
+            <Award className="w-3.5 h-3.5" /> WJEC Eduqas Exam Check
           </div>
           <h3 className="text-xl font-display font-bold text-white">
             A-Level Psychology Revision Quiz
@@ -237,8 +249,8 @@ export const RevisionQuizModal: React.FC<RevisionQuizModalProps> = ({ isOpen, on
             </div>
             <p className="text-xs text-slate-300 max-w-sm mx-auto leading-relaxed">
               {score >= 5
-                ? 'Outstanding work! You have mastered the Cannabis & Schizophrenia psychology topic.'
-                : 'Good effort! Review the Core Studies and Synapse model tabs to reinforce your key concepts.'}
+                ? 'Outstanding work! You have mastered the WJEC Eduqas Cannabis & Schizophrenia specification requirements.'
+                : 'Good effort! Review the Core Studies and Synapse model tabs to reinforce your AO1 & AO3 memory.'}
             </p>
             <div className="pt-4 flex items-center justify-center gap-3">
               <button

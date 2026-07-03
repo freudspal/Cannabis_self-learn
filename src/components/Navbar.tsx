@@ -60,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, openQui
     { id: 'synapse', label: 'Anatomical Synapse Model', description: 'Interactive synapse diagram & GABA disinhibition', icon: <GitCommit className="w-4 h-4" />, badge: 'Diagram & Animation' },
     { id: 'pathways', label: 'Dopamine Brain Pathways', description: 'Mesolimbic & Mesocortical pathways on brain cross-section', icon: <Brain className="w-4 h-4" />, badge: 'Brain Map' },
     { id: 'receptors', label: 'CB1 & CB2 Receptors', description: 'Human nervous system & immune receptor locations', icon: <Dna className="w-4 h-4" />, badge: 'Nervous System' },
-    { id: 'studies', label: 'Core Studies Library', description: 'Empirical research papers (Caspi, Ashtari, Murray)', icon: <BookOpen className="w-4 h-4" />, badge: '7 Papers' },
+    { id: 'studies', label: 'Core Studies Library', description: 'Empirical research papers (Caspi, van Winkel, Ashtari, Murray)', icon: <BookOpen className="w-4 h-4" />, badge: '8 Papers' },
     { id: 'generator', label: 'Odds Ratio Generator', description: 'Calculate statistical risk odds ratios for schizophrenia', icon: <Calculator className="w-4 h-4" />, badge: 'Risk Calculator' },
     { id: 'glossary', label: 'Glossary & Dictionary', description: 'Psychology terms in plain English with key terms', icon: <Search className="w-4 h-4" /> },
   ];

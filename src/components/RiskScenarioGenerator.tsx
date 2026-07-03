@@ -39,7 +39,7 @@ export const RiskScenarioGenerator: React.FC<RiskScenarioGeneratorProps> = ({ on
     if (scenario.geneticHistory === 'firstDegree') baseOR *= 3.0; // 10% lifetime baseline
     else if (scenario.geneticHistory === 'secondDegree') baseOR *= 1.5;
 
-    // AKT1 Gene Polymorphism (Caspi 2005)
+    // AKT1 Gene Polymorphism (van Winkel 2011)
     if (scenario.geneVariant === 'AKT1_CC') baseOR *= 2.2;
     else if (scenario.geneVariant === 'AKT1_CT') baseOR *= 1.3;
 
@@ -57,12 +57,13 @@ export const RiskScenarioGenerator: React.FC<RiskScenarioGeneratorProps> = ({ on
       riskCategory: category,
       percentageIncrease: Math.round((finalOR - 1) * 100),
       keyContributingFactors: [
-        scenario.geneVariant === 'AKT1_CC' ? 'AKT1 C/C Genotype (Caspi 2005 7x risk factor)' : '',
+        scenario.geneVariant === 'AKT1_CC' ? 'AKT1 C/C Genotype (van Winkel 2011 7x risk factor)' : '',
         scenario.ageOfFirstUse === 'under15' ? 'Adolescent exposure before age 15 (Pruning window)' : '',
         scenario.cannabisPotency === 'highThcSkunk' ? 'High-THC Skunk without CBD protection (Murray 2016)' : '',
         scenario.geneticHistory === 'firstDegree' ? 'First-degree relative with schizophrenia' : ''
       ].filter(Boolean),
-      caspiReference: 'Caspi et al. (2005) demonstrated that participants carrying the AKT1 C/C genotype using daily cannabis faced a 7-fold increase in schizophrenia symptoms.',
+      caspiReference: 'Caspi et al. (2005) demonstrated that participants carrying the COMT Val/Val genotype using adolescent cannabis faced a significantly increased risk of schizophreniform disorder.',
+      vanWinkelReference: 'van Winkel et al. (2011) demonstrated that participants carrying the AKT1 C/C genotype using daily cannabis faced a 7-fold increase in psychosis risk.',
       murrayReference: 'Murray et al. (2016) estimated that high-potency Skunk accounts for 24% of all first-episode psychosis presentations in South London.',
       examEvaluationNote: 'A-Level Exam Evaluation (AO3): Remember that an Odds Ratio of 5.0x does NOT equal 100% certainty. Baseline population risk is ~1%. A 5x increase raises lifetime risk to ~5%, meaning 95% of high-risk users do NOT develop schizophrenia.'
     };
@@ -182,10 +183,10 @@ export const RiskScenarioGenerator: React.FC<RiskScenarioGeneratorProps> = ({ on
             </div>
           </div>
 
-          {/* Option 4: AKT1 Gene Variant (Caspi 2005) */}
+          {/* Option 4: AKT1 Gene Variant (van Winkel et al. 2011) */}
           <div className="space-y-2">
             <label className="text-xs font-mono font-bold text-red-400 uppercase tracking-wider block">
-              AKT1 Gene Genotype (Caspi et al. 2005):
+              AKT1 Gene Genotype (van Winkel et al. 2011):
             </label>
             <div className="grid grid-cols-3 gap-2">
               {[
@@ -216,17 +217,28 @@ export const RiskScenarioGenerator: React.FC<RiskScenarioGeneratorProps> = ({ on
                 <Dna className="w-4 h-4 text-red-400" />
                 Explanation of the 3 Genetic Types (AKT1 Genotypes):
               </span>
-              {onOpenStudies ? (
-                <button
-                  onClick={() => onOpenStudies('caspi-2005')}
-                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-950/80 hover:bg-amber-900 border border-amber-500/40 text-amber-200 text-[10px] font-mono font-bold transition-all cursor-pointer active:scale-95"
-                >
-                  <Award className="w-3 h-3 text-amber-400" />
-                  <span>Caspi et al. (2005)</span>
-                </button>
-              ) : (
-                <span className="text-[10px] font-mono text-slate-400">Caspi et al. (2005)</span>
-              )}
+              <div className="flex items-center gap-1.5">
+                {onOpenStudies && (
+                  <>
+                    <button
+                      onClick={() => onOpenStudies('van-winkel-2011')}
+                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-950/80 hover:bg-amber-900 border border-amber-500/40 text-amber-200 text-[10px] font-mono font-bold transition-all cursor-pointer active:scale-95"
+                      title="View van Winkel et al. (2011) study on AKT1 gene"
+                    >
+                      <Award className="w-3 h-3 text-amber-400" />
+                      <span>van Winkel (2011)</span>
+                    </button>
+                    <button
+                      onClick={() => onOpenStudies('caspi-2005')}
+                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 text-[10px] font-mono font-bold transition-all cursor-pointer active:scale-95"
+                      title="View Caspi et al. (2005) study on COMT gene"
+                    >
+                      <Award className="w-3 h-3 text-slate-400" />
+                      <span>Caspi (2005)</span>
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
 
             <div className="grid grid-cols-1 gap-2.5">

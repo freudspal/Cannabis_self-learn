@@ -5,22 +5,42 @@ export const CORE_STUDIES: ResearchStudy[] = [
     id: 'caspi-2005',
     authors: 'Caspi et al.',
     year: 2005,
-    fullTitle: 'Moderation of the Effect of Adolescent-Onset Cannabis Use on Adult Psychosis by a Functional Polymorphism in the AKT1 / COMT Gene',
-    aim: 'To investigate whether a specific genetic vulnerability (polymorphism in the AKT1 gene or COMT gene) interacts with adolescent cannabis use to increase the risk of developing adult psychosis (Gene-Environment Interaction $G \\times E$).',
-    sampleAndMethod: 'Longitudinal prospective study using a cohort of 803 individuals from New Zealand (Dunedin Multidisciplinary Health and Development Study). Genetic testing identified AKT1 genotypes (C/C, C/T, T/T), and self-reported cannabis use was measured across adolescence (ages 13–18).',
-    keyFindings: 'Individuals carrying the C/C homozygous variant of the AKT1 gene who used cannabis daily during adolescence were 7 times more likely (Odds Ratio = 7.0) to develop schizophrenia/psychotic symptoms by age 26 compared to non-users. T/T carriers showed no increased risk despite cannabis use.',
+    fullTitle: 'Moderation of the Effect of Adolescent-Onset Cannabis Use on Adult Psychosis by a Functional Polymorphism in the Catechol-O-Methyltransferase (COMT) Gene',
+    aim: 'To investigate whether a functional polymorphism in the COMT gene (Val158Met: Val/Val, Val/Met, Met/Met) interacts with adolescent cannabis use to increase the risk of developing adult psychotic symptoms and schizophreniform disorder (Gene-Environment Interaction $G \\times E$).',
+    sampleAndMethod: 'Longitudinal prospective birth cohort study tracking 803 individuals from New Zealand (Dunedin Multidisciplinary Health and Development Study). Genetic testing identified COMT Val158Met genotypes, and self-reported cannabis use was measured across adolescence (ages 13–18).',
+    keyFindings: 'Adolescent cannabis users carrying the COMT Val/Val (homozygous Valine) genotype were significantly more likely to develop schizophreniform disorder and psychotic symptoms by age 26 compared to Met/Met carriers. Met/Met carriers showed no increased risk of psychosis regardless of adolescent cannabis use, proving a strong $G \\times E$ interaction.',
     strengths: [
-      'Longitudinal design established temporal sequence (cannabis use preceded psychosis onset).',
+      'Longitudinal design established temporal sequence (adolescent cannabis use preceded psychosis onset).',
       'Provides empirical support for the Diathesis-Stress Model (genetic diathesis + environmental cannabis stressor).',
-      'High internal validity through precise DNA genotype mapping.'
+      'Controlled for pre-existing childhood psychiatric symptoms prior to cannabis initiation.'
     ],
     criticisms: [
       'Self-report measures of adolescent cannabis use may suffer from memory bias or under-reporting due to illegality.',
       'Correlational nature: Cannot ethically assign participants to smoke cannabis in a double-blind experiment.',
       'Sample was predominantly white New Zealander cohort, limiting cross-cultural generalisability.'
     ],
-    eduqasExamTip: 'Use Caspi (2005) in AO3 evaluation to show why cannabis affects people differently: cannabis is NOT a simple direct cause, but an environmental trigger for genetically vulnerable individuals (Gene-Environment Interaction).',
-    relevanceToVideo: 'Directly illustrates why some cannabis users develop hallucinations while others do not—showing how THC interacts with specific neurotransmitter gene pathways.'
+    eduqasExamTip: 'Use Caspi (2005) in AO3 evaluation to show why cannabis affects people differently: cannabis is NOT a simple direct cause, but an environmental trigger for genetically vulnerable individuals carrying the COMT Val/Val allele (Gene-Environment Interaction).',
+    relevanceToVideo: 'Directly illustrates why some cannabis users develop hallucinations while others do not—showing how THC interacts with prefrontal COMT dopamine degradation enzymes.'
+  },
+  {
+    id: 'van-winkel-2011',
+    authors: 'van Winkel et al.',
+    year: 2011,
+    fullTitle: 'Family-Based Analysis of AKT1 x Cannabis Interaction on Psychosis Proneness',
+    aim: 'To examine whether single nucleotide polymorphisms in the AKT1 gene (rs2494732 SNP: C/C, C/T, T/T) interact with cannabis consumption frequency to predict psychosis proneness and psychotic disorders.',
+    sampleAndMethod: 'Family-based and case-control genetic study assessing AKT1 genotypes (C/C, C/T, T/T) and cannabis consumption frequency across clinical psychosis patients, unaffected siblings, and healthy controls.',
+    keyFindings: 'Daily cannabis users carrying the C/C homozygous variant of the AKT1 gene faced a 7-fold increase in the odds of developing psychosis (Odds Ratio = 7.0) compared to non-users or T/T carriers. T/T carriers showed no increased risk despite daily cannabis use.',
+    strengths: [
+      'Replicated in independent multi-center cohorts (e.g. Di Forti et al., 2012).',
+      'Directly linked to downstream striatal dopamine D2 receptor signaling cascades regulated by AKT1 kinase.',
+      'Demonstrated a strong statistical interaction between daily cannabis frequency and C/C genotype.'
+    ],
+    criticisms: [
+      'Focuses on a single genetic locus (rs2494732), whereas schizophrenia risk is polygenic.',
+      'Relies on self-reported cannabis frequency and strain type.'
+    ],
+    eduqasExamTip: 'Use van Winkel et al. (2011) to explain the 7x psychosis risk in AKT1 C/C homozygotes who smoke daily cannabis, demonstrating how AKT1 kinase variants in striatal dopamine pathways regulate genetic susceptibility.',
+    relevanceToVideo: 'Provides empirical support for how daily high-THC cannabis interacts with the AKT1 gene to disinhibit striatal dopamine signaling.'
   },
   {
     id: 'ashtari-2009',
