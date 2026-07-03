@@ -271,7 +271,7 @@ export const THCVSBDComparator: React.FC<THCVSBDComparatorProps> = ({ onOpenStud
             </div>
 
             <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-center">
-              <div className="text-[10px] font-mono text-slate-400">Rel. Risk (RR)</div>
+              <div className="text-[10px] font-mono text-slate-400">Risk of Psychosis</div>
               <div className={`text-sm font-display font-bold mt-0.5 ${
                 relativeRiskRatio > 6 ? 'text-red-400' : relativeRiskRatio > 3 ? 'text-amber-400' : 'text-emerald-400'
               }`}>
@@ -346,7 +346,7 @@ export const THCVSBDComparator: React.FC<THCVSBDComparatorProps> = ({ onOpenStud
                   />
                 </div>
                 <span className="text-[10px] font-mono font-bold text-slate-300 mt-2 text-center leading-tight">
-                  Relative<br />Risk Ratio
+                  Relative<br />Risk of Psychosis
                 </span>
               </div>
             </div>
