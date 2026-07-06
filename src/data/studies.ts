@@ -62,13 +62,13 @@ export const CORE_STUDIES: ResearchStudy[] = [
     ],
     eduqasExamTip: 'Crucial biological evidence for AO1/AO3: Shows physical brain damage caused by cannabis in fronto-temporal tracts, linking impaired prefrontal executive control to schizophrenia symptoms.',
     relevanceToVideo: 'Supplements video coverage on how adolescent brain development is disrupted by THC, altering brain architecture before full maturation.',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/19482312/'
+    url: 'https://www.sciencedirect.com/science/article/abs/pii/S0022395608002653'
   },
   {
     id: 'mcgee-2000',
     authors: 'McGee et al.',
     year: 2000,
-    fullTitle: 'Longitudinal Association Between Adolescent Cannabis Use and Mental Health Outcomes in Young Adulthood',
+    fullTitle: 'A longitudinal study of cannabis use and mental health from adolescence to early adulthood',
     aim: 'To evaluate whether early adolescent cannabis use predicts subsequent psychiatric disorders, particularly psychotic symptoms, in young adulthood.',
     sampleAndMethod: 'Prospective birth cohort study tracking over 1,000 children born in Dunedin, NZ, assessed at ages 15, 18, 21, and 26 for substance use, social background, and psychiatric symptoms using DSM clinical criteria.',
     keyFindings: 'Participants who initiated heavy cannabis use before age 15 had a 3-fold higher risk of experiencing schizophrenia symptoms by age 26. The association persisted even after controlling for baseline socio-economic status and prior mental health issues.',
@@ -82,13 +82,13 @@ export const CORE_STUDIES: ResearchStudy[] = [
     ],
     eduqasExamTip: 'Great AO1 evidence for the "Age Factor": Using cannabis before age 15 dramatically amplifies risk compared to starting after age 18, when brain pruning is largely complete.',
     relevanceToVideo: 'Complements the video’s emphasis on the adolescent brain being particularly susceptible to neurochemical disruption by exogenous cannabinoids.',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/10858063/'
+    url: 'https://onlinelibrary.wiley.com/doi/abs/10.1046/j.1360-0443.2000.9544912.x'
   },
   {
     id: 'murray-2004',
     authors: 'Murray et al.',
     year: 2004,
-    fullTitle: 'Cannabis, Psychosis and High-Potency "Skunk": The South London First-Episode Psychosis Cohort Studies',
+    fullTitle: 'Cannabis and psychosis',
     aim: 'To investigate the impact of modern high-potency cannabis strains ("Skunk", high THC / zero CBD) on the incidence of first-episode psychosis.',
     sampleAndMethod: 'Case-control epidemiological study in South London comparing 780 patients presenting with first-episode psychosis against 1,241 healthy community controls. Recorded cannabis strain type, frequency, and duration of use.',
     keyFindings: 'Daily use of high-potency "Skunk" (THC >15%, CBD ~0%) was associated with a 5-fold increase in the odds of developing psychosis (OR = 5.4). Murray estimated that 24% of all new cases of psychosis in South London were attributable to high-potency cannabis use.',
@@ -102,47 +102,47 @@ export const CORE_STUDIES: ResearchStudy[] = [
     ],
     eduqasExamTip: 'Essential AO3 application point: Highlights that it is not just "cannabis" as a generic term, but the THC:CBD ratio that determines psychotogenic risk.',
     relevanceToVideo: 'Directly mirrors the video content explaining why high THC without CBD protection floods CB1 receptors and triggers hyper-dopaminergia.',
-    url: 'https://scholar.google.com/scholar?q=Murray+2004+Cannabis+Psychosis+South+London'
+    url: 'https://www.cambridge.org/core/journals/european-psychiatry/article/cannabis-and-psychosis/4EBD1758D50D314C546543E4A2835FC4'
   },
   {
     id: 'stirling-2005',
     authors: 'Stirling et al.',
     year: 2005,
-    fullTitle: 'Neuropsychological Deficits in First-Episode Schizophrenia Patients With and Without Cannabis Use',
-    aim: 'To compare the cognitive profile and executive function performance of schizophrenia patients with a history of cannabis misuse against non-cannabis using schizophrenia controls.',
-    sampleAndMethod: 'Neuropsychological assessment battery (Stroop test, Wisconsin Card Sorting Test, verbal fluency) administered to 19 first-episode schizophrenia patients with cannabis misuse history vs 20 non-using schizophrenia patients.',
-    keyFindings: 'Schizophrenia patients with cannabis misuse exhibited earlier age of illness onset (on average 4–5 years earlier) and significantly greater executive function deficits, working memory impairments, and processing speed slowness.',
+    fullTitle: 'Cannabis use prior to first onset psychosis predicts spared neurocognition at 10-year follow-up',
+    aim: 'To compare long-term (10–12 year) clinical, behavioural, and neurocognitive outcomes in schizophrenia patients with vs. without a history of cannabis use prior to first-episode psychosis.',
+    sampleAndMethod: 'Longitudinal 10–12 year follow-up study tracking 69 surviving schizophrenia/psychosis patients from the original Manchester first-episode cohort of 112 participants, assessing clinical, behavioural, and neurocognitive performance.',
+    keyFindings: 'Non-cannabis users and prior cannabis users were largely indistinguishable on clinical measures at follow-up, EXCEPT that patients who used cannabis prior to first-episode onset evidenced a marked "sparing" of neurocognitive functions (better preserved cognitive performance).',
     strengths: [
-      'Detailed neuropsychological test battery measuring specific prefrontal cortex cognitive domains.',
-      'Matched patient controls on psychiatric medication dosage.'
+      'Long-term prospective 10–12 year follow-up of a well-characterised first-episode cohort.',
+      'Comprehensive neuropsychological test battery measuring multiple cognitive domains.'
     ],
     criticisms: [
-      'Small clinical sample size (39 participants total).',
-      'Cross-sectional design: Unable to definitively determine if cognitive deficits predated cannabis initiation.'
+      'Sample attrition over 10–12 years (69 of 100 surviving patients assessed at follow-up).',
+      'Historical recording of a priori cannabis use at index admission.'
     ],
-    eduqasExamTip: 'Use in AO3 to demonstrate that cannabis worsens the long-term prognosis, cognitive decline, and negative/cognitive symptoms in schizophrenia.',
-    relevanceToVideo: 'Shows how prefrontal cortex impairment (mesocortical hypo-dopaminergia) manifests practically as cognitive deficits in patients.',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/16019087/'
+    eduqasExamTip: 'Use Stirling et al. (2005) in AO3 evaluation to show a subtle nuance: cannabis-induced psychosis may occur in individuals with lower intrinsic neurodevelopmental vulnerability, explaining why their neurocognition is "spared" relative to non-user controls.',
+    relevanceToVideo: 'Highlights that THC can trigger psychotic symptoms even in individuals who lack the severe baseline cognitive deficits typical of genetic schizophrenia.',
+    url: 'https://www.sciencedirect.com/science/article/abs/pii/S0920996404003986'
   },
   {
     id: 'mccleary-2006',
-    authors: 'McCleary et al.',
+    authors: 'McCleery et al.',
     year: 2006,
-    fullTitle: 'Impact of Substance Misuse on Relapse and Psychiatric Hospital Re-admission Rates in Schizophrenia',
-    aim: 'To examine how continued cannabis use post-diagnosis influences medication compliance, relapse frequency, and psychiatric re-admission.',
-    sampleAndMethod: 'Follow-up clinical study tracking 112 patients diagnosed with schizophrenia over a 24-month post-discharge period, monitoring urine toxicology, antipsychotic compliance, and hospital admission logs.',
-    keyFindings: 'Patients who continued using cannabis had double the relapse rate and significantly higher psychiatric re-admission rates compared to abstinent patients. Cannabis users were also significantly less compliant with their prescribed antipsychotic medication.',
+    fullTitle: 'Substance misuse and cognitive functioning in early psychosis: A 2 year follow-up',
+    aim: 'To examine the relationship between substance misuse and cognitive functioning in a first-episode psychosis sample across a 2-year follow-up following admission to a specialized early psychosis program.',
+    sampleAndMethod: 'Prospective 2-year longitudinal study evaluating 183 first-episode psychosis patients at baseline, 147 at 1 year, and 116 at 2 years using the Case Manager Rating Scale (CMRS) for substance use and a comprehensive cognitive test battery.',
+    keyFindings: 'Approximately 50% of subjects engaged in substance misuse at baseline. Patients with mild substance use or misuse demonstrated significantly BETTER baseline cognitive performance and maintained better performance at 2-year follow-up compared to non-substance users, providing no evidence that substance misuse negatively impacts cognitive functioning in early psychosis.',
     strengths: [
-      'Objective urine toxicology screening corroborated self-reported cannabis use.',
-      'Real-world clinical utility for psychiatric management and relapse prevention.'
+      'Prospective 2-year longitudinal follow-up in a well-defined first-episode psychosis cohort.',
+      'Comprehensive neuropsychological testing battery combined with validated Case Manager Rating Scale for substance use.'
     ],
     criticisms: [
-      'Confounding factor of antipsychotic side-effects (e.g. extrapyramidal symptoms or sedation) which may drive patients to smoke cannabis for relief.',
-      'Did not control for social support networks and living conditions.'
+      'Participant attrition over 2 years (183 patients at baseline down to 116 at 2-year follow-up).',
+      'Did not differentiate detailed neurochemical strain potencies (e.g. THC:CBD ratios) or polysubstance sub-categories.'
     ],
-    eduqasExamTip: 'Excellent for evaluative discussion on Schizophrenia Management and Prognosis: Cannabis interferes with D2-receptor antagonist antipsychotics, exacerbating positive symptoms.',
-    relevanceToVideo: 'Illustrates how ongoing THC exposure counteracts prescribed antipsychotic medications that try to block dopamine D2 receptors.',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/16478234/'
+    eduqasExamTip: 'Use McCleery et al. (2006) alongside Stirling et al. (2005) in AO3 evaluation to challenge simplistic assumptions: first-episode psychosis patients with substance use history frequently demonstrate superior/spared baseline cognitive functioning compared to non-using schizophrenia controls.',
+    relevanceToVideo: 'Complements findings that individuals who develop psychosis following cannabis exposure may represent a neurodevelopmentally distinct subgroup with better baseline cognitive reserve.',
+    url: 'https://www.sciencedirect.com/science/article/abs/pii/S0920996406003100'
   },
   {
     id: 'arseneault-2002',
