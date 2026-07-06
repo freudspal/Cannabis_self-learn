@@ -20,7 +20,8 @@ export const CORE_STUDIES: ResearchStudy[] = [
       'Sample was predominantly white New Zealander cohort, limiting cross-cultural generalisability.'
     ],
     eduqasExamTip: 'Use Caspi (2005) in AO3 evaluation to show why cannabis affects people differently: cannabis is NOT a simple direct cause, but an environmental trigger for genetically vulnerable individuals carrying the COMT Val/Val allele (Gene-Environment Interaction).',
-    relevanceToVideo: 'Directly illustrates why some cannabis users develop hallucinations while others do not—showing how THC interacts with prefrontal COMT dopamine degradation enzymes.'
+    relevanceToVideo: 'Directly illustrates why some cannabis users develop hallucinations while others do not—showing how THC interacts with prefrontal COMT dopamine degradation enzymes.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/15866551/'
   },
   {
     id: 'van-winkel-2011',
@@ -40,7 +41,8 @@ export const CORE_STUDIES: ResearchStudy[] = [
       'Relies on self-reported cannabis frequency and strain type.'
     ],
     eduqasExamTip: 'Use van Winkel et al. (2011) to explain the 7x psychosis risk in AKT1 C/C homozygotes who smoke daily cannabis, demonstrating how AKT1 kinase variants in striatal dopamine pathways regulate genetic susceptibility.',
-    relevanceToVideo: 'Provides empirical support for how daily high-THC cannabis interacts with the AKT1 gene to disinhibit striatal dopamine signaling.'
+    relevanceToVideo: 'Provides empirical support for how daily high-THC cannabis interacts with the AKT1 gene to disinhibit striatal dopamine signaling.',
+    url: 'https://www.nature.com/articles/npp2011141'
   },
   {
     id: 'ashtari-2009',
@@ -59,7 +61,8 @@ export const CORE_STUDIES: ResearchStudy[] = [
       'Cause and effect ambiguity: Did cannabis disrupt white matter development, or did pre-existing brain tract abnormalities incline participants to substance use?'
     ],
     eduqasExamTip: 'Crucial biological evidence for AO1/AO3: Shows physical brain damage caused by cannabis in fronto-temporal tracts, linking impaired prefrontal executive control to schizophrenia symptoms.',
-    relevanceToVideo: 'Supplements video coverage on how adolescent brain development is disrupted by THC, altering brain architecture before full maturation.'
+    relevanceToVideo: 'Supplements video coverage on how adolescent brain development is disrupted by THC, altering brain architecture before full maturation.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/19482312/'
   },
   {
     id: 'mcgee-2000',
@@ -78,7 +81,8 @@ export const CORE_STUDIES: ResearchStudy[] = [
       'Polysubstance use (alcohol, nicotine, amphetamines) was common among early cannabis users, making isolation of pure cannabis effects challenging.'
     ],
     eduqasExamTip: 'Great AO1 evidence for the "Age Factor": Using cannabis before age 15 dramatically amplifies risk compared to starting after age 18, when brain pruning is largely complete.',
-    relevanceToVideo: 'Complements the video’s emphasis on the adolescent brain being particularly susceptible to neurochemical disruption by exogenous cannabinoids.'
+    relevanceToVideo: 'Complements the video’s emphasis on the adolescent brain being particularly susceptible to neurochemical disruption by exogenous cannabinoids.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/10858063/'
   },
   {
     id: 'murray-2004',
@@ -97,7 +101,8 @@ export const CORE_STUDIES: ResearchStudy[] = [
       'Potential reverse causality: Individuals experiencing early prodromal symptoms of schizophrenia may use high-THC cannabis as a form of self-medication.'
     ],
     eduqasExamTip: 'Essential AO3 application point: Highlights that it is not just "cannabis" as a generic term, but the THC:CBD ratio that determines psychotogenic risk.',
-    relevanceToVideo: 'Directly mirrors the video content explaining why high THC without CBD protection floods CB1 receptors and triggers hyper-dopaminergia.'
+    relevanceToVideo: 'Directly mirrors the video content explaining why high THC without CBD protection floods CB1 receptors and triggers hyper-dopaminergia.',
+    url: 'https://scholar.google.com/scholar?q=Murray+2004+Cannabis+Psychosis+South+London'
   },
   {
     id: 'stirling-2005',
@@ -116,7 +121,8 @@ export const CORE_STUDIES: ResearchStudy[] = [
       'Cross-sectional design: Unable to definitively determine if cognitive deficits predated cannabis initiation.'
     ],
     eduqasExamTip: 'Use in AO3 to demonstrate that cannabis worsens the long-term prognosis, cognitive decline, and negative/cognitive symptoms in schizophrenia.',
-    relevanceToVideo: 'Shows how prefrontal cortex impairment (mesocortical hypo-dopaminergia) manifests practically as cognitive deficits in patients.'
+    relevanceToVideo: 'Shows how prefrontal cortex impairment (mesocortical hypo-dopaminergia) manifests practically as cognitive deficits in patients.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/16019087/'
   },
   {
     id: 'mccleary-2006',
@@ -135,7 +141,8 @@ export const CORE_STUDIES: ResearchStudy[] = [
       'Did not control for social support networks and living conditions.'
     ],
     eduqasExamTip: 'Excellent for evaluative discussion on Schizophrenia Management and Prognosis: Cannabis interferes with D2-receptor antagonist antipsychotics, exacerbating positive symptoms.',
-    relevanceToVideo: 'Illustrates how ongoing THC exposure counteracts prescribed antipsychotic medications that try to block dopamine D2 receptors.'
+    relevanceToVideo: 'Illustrates how ongoing THC exposure counteracts prescribed antipsychotic medications that try to block dopamine D2 receptors.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/16478234/'
   },
   {
     id: 'arseneault-2002',
@@ -154,6 +161,7 @@ export const CORE_STUDIES: ResearchStudy[] = [
       'Cannabis potency in the 1980s/1990s was much lower (~3-5% THC) than modern street Skunk (>20% THC), potentially UNDERESTIMATING current population risks.'
     ],
     eduqasExamTip: 'Top-tier AO3 study! Use Arseneault (2002) to refute the "Self-Medication" argument because controlling for age 11 psychotic symptoms STILL yielded a 4.5x risk increase.',
-    relevanceToVideo: 'Provides key scientific backing for the video thesis that early adolescent THC exposure actively triggers biological pathways leading to psychosis.'
+    relevanceToVideo: 'Provides key scientific backing for the video thesis that early adolescent THC exposure actively triggers biological pathways leading to psychosis.',
+    url: 'https://www.bmj.com/content/325/7374/1212'
   }
 ];
