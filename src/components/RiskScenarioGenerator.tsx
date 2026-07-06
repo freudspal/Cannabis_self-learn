@@ -10,12 +10,22 @@ interface RiskScenarioGeneratorProps {
 
 export const RiskScenarioGenerator: React.FC<RiskScenarioGeneratorProps> = ({ onOpenGlossary, onOpenStudies }) => {
   const [scenario, setScenario] = useState<RiskFactorsScenario>({
-    ageOfFirstUse: 'under15',
-    cannabisPotency: 'highThcSkunk',
-    frequency: 'dailyHeavy',
-    geneticHistory: 'firstDegree',
-    geneVariant: 'AKT1_CC'
+    ageOfFirstUse: 'never',
+    cannabisPotency: 'none',
+    frequency: 'never',
+    geneticHistory: 'noHistory',
+    geneVariant: 'AKT1_TT'
   });
+
+  const handleResetBaseline = () => {
+    setScenario({
+      ageOfFirstUse: 'never',
+      cannabisPotency: 'none',
+      frequency: 'never',
+      geneticHistory: 'noHistory',
+      geneVariant: 'AKT1_TT'
+    });
+  };
 
   // Calculate Odds Ratio (OR) dynamically based on epidemiological data
   const calculateOddsRatio = (): RiskAnalysisResult => {
@@ -25,23 +35,24 @@ export const RiskScenarioGenerator: React.FC<RiskScenarioGeneratorProps> = ({ on
     if (scenario.ageOfFirstUse === 'under15') baseOR *= 2.8;
     else if (scenario.ageOfFirstUse === 'age15to18') baseOR *= 1.8;
     else if (scenario.ageOfFirstUse === 'over18') baseOR *= 1.2;
+    else if (scenario.ageOfFirstUse === 'never') baseOR *= 1.0;
 
     // Potency multiplier (Murray 2016)
     if (scenario.cannabisPotency === 'highThcSkunk') baseOR *= 2.5;
-    else if (scenario.cannabisPotency === 'moderateBalanced') baseOR *= 1.2;
-    else if (scenario.cannabisPotency === 'lowThcCbd') baseOR *= 0.9; // protective
+    else if (scenario.cannabisPotency === 'moderateBalanced') baseOR *= 1.3;
+    else if (scenario.cannabisPotency === 'lowThcCbd') baseOR *= 0.95;
+    else if (scenario.cannabisPotency === 'none') baseOR *= 1.0;
 
-    // Frequency
+    // Frequency multiplier
     if (scenario.frequency === 'dailyHeavy') baseOR *= 2.0;
-    else if (scenario.frequency === 'weekly') baseOR *= 1.3;
+    else if (scenario.frequency === 'weekly') baseOR *= 1.4;
+    else if (scenario.frequency === 'occasional') baseOR *= 1.1;
+    else if (scenario.frequency === 'never') baseOR *= 1.0;
 
-    // Genetics / Family history
-    if (scenario.geneticHistory === 'firstDegree') baseOR *= 3.0; // 10% lifetime baseline
-    else if (scenario.geneticHistory === 'secondDegree') baseOR *= 1.5;
-
-    // AKT1 Gene Polymorphism (van Winkel 2011)
+    // AKT1 Gene Polymorphism / Genetic Markers (van Winkel 2011)
     if (scenario.geneVariant === 'AKT1_CC') baseOR *= 2.2;
-    else if (scenario.geneVariant === 'AKT1_CT') baseOR *= 1.3;
+    else if (scenario.geneVariant === 'AKT1_CT') baseOR *= 1.4;
+    else if (scenario.geneVariant === 'AKT1_TT') baseOR *= 1.0;
 
     // Cap & Format
     const finalOR = Math.min(12.5, Math.max(1.0, baseOR));
@@ -50,18 +61,34 @@ export const RiskScenarioGenerator: React.FC<RiskScenarioGeneratorProps> = ({ on
     if (finalOR > 8) category = 'Extreme Risk';
     else if (finalOR > 5) category = 'Very High Risk';
     else if (finalOR > 3) category = 'High Risk';
-    else if (finalOR > 1.8) category = 'Moderate Risk';
+    else if (finalOR > 1.4) category = 'Moderate Risk';
+
+    const rawFactors = [
+      scenario.ageOfFirstUse === 'under15' ? 'Adolescent exposure before age 15 (Pruning window)' :
+      scenario.ageOfFirstUse === 'age15to18' ? 'Adolescent exposure age 15-18' :
+      scenario.ageOfFirstUse === 'over18' ? 'Adult cannabis initiation' : '',
+
+      scenario.cannabisPotency === 'highThcSkunk' ? 'High-THC Skunk without CBD protection (Murray 2016)' :
+      scenario.cannabisPotency === 'moderateBalanced' ? 'Balanced 1:1 THC:CBD Strain' :
+      scenario.cannabisPotency === 'lowThcCbd' ? 'High-CBD / Hemp (Protective)' : '',
+
+      scenario.frequency === 'dailyHeavy' ? 'Daily heavy consumption pattern' :
+      scenario.frequency === 'weekly' ? 'Weekly / weekend consumption' :
+      scenario.frequency === 'occasional' ? 'Occasional / rare use' : '',
+
+      scenario.geneVariant === 'AKT1_CC' ? 'AKT1 C/C Genotype (van Winkel 2011 7x risk factor)' :
+      scenario.geneVariant === 'AKT1_CT' ? 'AKT1 C/T Genotype (Moderate Risk Variant)' : ''
+    ].filter(Boolean);
+
+    const keyContributingFactors = rawFactors.length > 0 
+      ? rawFactors 
+      : ['✓ Baseline Non-User Profile (Standard population risk ~1.0x)'];
 
     return {
       oddsRatio: Number(finalOR.toFixed(1)),
       riskCategory: category,
       percentageIncrease: Math.round((finalOR - 1) * 100),
-      keyContributingFactors: [
-        scenario.geneVariant === 'AKT1_CC' ? 'AKT1 C/C Genotype (van Winkel 2011 7x risk factor)' : '',
-        scenario.ageOfFirstUse === 'under15' ? 'Adolescent exposure before age 15 (Pruning window)' : '',
-        scenario.cannabisPotency === 'highThcSkunk' ? 'High-THC Skunk without CBD protection (Murray 2016)' : '',
-        scenario.geneticHistory === 'firstDegree' ? 'First-degree relative with schizophrenia' : ''
-      ].filter(Boolean),
+      keyContributingFactors,
       caspiReference: 'Caspi et al. (2005) demonstrated that participants carrying the COMT Val/Val genotype using adolescent cannabis faced a significantly increased risk of schizophreniform disorder.',
       vanWinkelReference: 'van Winkel et al. (2011) demonstrated that participants carrying the AKT1 C/C genotype using daily cannabis faced a 7-fold increase in psychosis risk.',
       murrayReference: 'Murray et al. (2016) estimated that high-potency Skunk accounts for 24% of all first-episode psychosis presentations in South London.',
@@ -98,9 +125,18 @@ export const RiskScenarioGenerator: React.FC<RiskScenarioGeneratorProps> = ({ on
         
         {/* Left Options Configurator */}
         <div className="lg:col-span-7 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-5">
-          <h3 className="text-base font-display font-bold text-white border-b border-slate-800 pb-2">
-            Configure Student Scenario Options:
-          </h3>
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-2">
+            <h3 className="text-base font-display font-bold text-white">
+              Configure Student Scenario Options:
+            </h3>
+            <button
+              onClick={handleResetBaseline}
+              className="text-[11px] font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-950 hover:bg-emerald-950 text-emerald-400 border border-emerald-800/80 transition-all cursor-pointer active:scale-95"
+              title="Reset all options to baseline non-user state (1.0x)"
+            >
+              Reset to Baseline (1.0x)
+            </button>
+          </div>
 
           {/* Option 1: Age of First Use */}
           <div className="space-y-2">
@@ -109,17 +145,17 @@ export const RiskScenarioGenerator: React.FC<RiskScenarioGeneratorProps> = ({ on
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {[
-                { id: 'under15', label: 'Under 15 yrs', note: 'High Brain Pruning Risk' },
-                { id: 'age15to18', label: '15 - 18 yrs', note: 'Moderate Risk' },
-                { id: 'over18', label: 'After 18 yrs', note: 'Lower Risk' },
-                { id: 'never', label: 'Never Used', note: 'Baseline Risk' },
+                { id: 'never', label: 'Never Used', note: 'Baseline (1.0x)' },
+                { id: 'over18', label: 'After 18 yrs', note: 'Lower Risk (1.2x)' },
+                { id: 'age15to18', label: '15 - 18 yrs', note: 'Moderate (1.8x)' },
+                { id: 'under15', label: 'Under 15 yrs', note: 'High Risk (2.8x)' },
               ].map((opt) => (
                 <button
                   key={opt.id}
                   onClick={() => setScenario({ ...scenario, ageOfFirstUse: opt.id as any })}
                   className={`p-2.5 rounded-xl border text-left text-xs transition-all cursor-pointer ${
                     scenario.ageOfFirstUse === opt.id
-                      ? 'bg-emerald-500 text-black font-bold border-emerald-400'
+                      ? 'bg-emerald-500 text-black font-bold border-emerald-400 shadow-md shadow-emerald-500/20'
                       : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700'
                   }`}
                 >
@@ -135,18 +171,19 @@ export const RiskScenarioGenerator: React.FC<RiskScenarioGeneratorProps> = ({ on
             <label className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider block">
               Cannabis Strain Type & Potency:
             </label>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {[
-                { id: 'highThcSkunk', label: 'High-THC "Skunk"', note: 'THC >20%, 0% CBD' },
-                { id: 'moderateBalanced', label: 'Balanced 1:1 Strain', note: 'Equal THC & CBD' },
-                { id: 'lowThcCbd', label: 'High-CBD / Hemp', note: 'Neuroprotective' },
+                { id: 'none', label: 'Never Used', note: 'No THC (1.0x)' },
+                { id: 'lowThcCbd', label: 'High-CBD / Hemp', note: 'Protective (0.95x)' },
+                { id: 'moderateBalanced', label: 'Balanced 1:1', note: 'Equal THC:CBD (1.3x)' },
+                { id: 'highThcSkunk', label: 'High-THC "Skunk"', note: 'THC >20% (2.5x)' },
               ].map((opt) => (
                 <button
                   key={opt.id}
                   onClick={() => setScenario({ ...scenario, cannabisPotency: opt.id as any })}
                   className={`p-2.5 rounded-xl border text-left text-xs transition-all cursor-pointer ${
                     scenario.cannabisPotency === opt.id
-                      ? 'bg-amber-500 text-black font-bold border-amber-400'
+                      ? 'bg-amber-500 text-black font-bold border-amber-400 shadow-md shadow-amber-500/20'
                       : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700'
                   }`}
                 >
@@ -162,22 +199,24 @@ export const RiskScenarioGenerator: React.FC<RiskScenarioGeneratorProps> = ({ on
             <label className="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider block">
               Frequency of Consumption:
             </label>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {[
-                { id: 'dailyHeavy', label: 'Daily Heavy Use' },
-                { id: 'weekly', label: 'Weekly / Weekend' },
-                { id: 'occasional', label: 'Occasional / Rare' },
+                { id: 'never', label: 'Never Used', note: 'Zero Use (1.0x)' },
+                { id: 'occasional', label: 'Occasional / Rare', note: 'Infrequent (1.1x)' },
+                { id: 'weekly', label: 'Weekly / Weekend', note: 'Regular (1.4x)' },
+                { id: 'dailyHeavy', label: 'Daily Heavy Use', note: 'Frequent (2.0x)' },
               ].map((opt) => (
                 <button
                   key={opt.id}
                   onClick={() => setScenario({ ...scenario, frequency: opt.id as any })}
-                  className={`p-2.5 rounded-xl border text-center text-xs transition-all cursor-pointer ${
+                  className={`p-2.5 rounded-xl border text-left text-xs transition-all cursor-pointer ${
                     scenario.frequency === opt.id
-                      ? 'bg-sky-500 text-black font-bold border-sky-400'
+                      ? 'bg-sky-500 text-black font-bold border-sky-400 shadow-md shadow-sky-500/20'
                       : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700'
                   }`}
                 >
                   <div className="font-bold">{opt.label}</div>
+                  <div className="text-[10px] opacity-80 font-mono mt-0.5">{opt.note}</div>
                 </button>
               ))}
             </div>
@@ -186,25 +225,25 @@ export const RiskScenarioGenerator: React.FC<RiskScenarioGeneratorProps> = ({ on
           {/* Option 4: AKT1 Gene Variant (van Winkel et al. 2011) */}
           <div className="space-y-2">
             <label className="text-xs font-mono font-bold text-red-400 uppercase tracking-wider block">
-              AKT1 Gene Genotype (van Winkel et al. 2011):
+              Genetic Markers (AKT1 Genotype - van Winkel 2011):
             </label>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               {[
-                { id: 'AKT1_CC', label: '1. C/C Genotype', note: '7x High Vulnerability' },
-                { id: 'AKT1_CT', label: '2. C/T Genotype', note: 'Moderate Risk' },
-                { id: 'AKT1_TT', label: '3. T/T Genotype', note: 'Protective Allele' },
+                { id: 'AKT1_TT', label: 'No Genetic Markers', note: 'T/T Baseline Genotype (1.0x)' },
+                { id: 'AKT1_CT', label: 'C/T Genotype', note: 'Moderate Risk Variant (1.4x)' },
+                { id: 'AKT1_CC', label: 'C/C Genotype', note: 'High Risk Variant (2.2x)' },
               ].map((opt) => (
                 <button
                   key={opt.id}
                   onClick={() => setScenario({ ...scenario, geneVariant: opt.id as any })}
                   className={`p-2.5 rounded-xl border text-left text-xs transition-all cursor-pointer ${
                     scenario.geneVariant === opt.id
-                      ? 'bg-red-950 border-red-500 text-red-200 font-bold'
+                      ? 'bg-red-500 text-black font-bold border-red-400 shadow-md shadow-red-500/20'
                       : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700'
                   }`}
                 >
                   <div className="font-bold">{opt.label}</div>
-                  <div className="text-[10px] text-slate-400 font-mono">{opt.note}</div>
+                  <div className="text-[10px] opacity-80 font-mono mt-0.5">{opt.note}</div>
                 </button>
               ))}
             </div>
