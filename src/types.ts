@@ -49,6 +49,7 @@ export interface ResearchStudy {
   criticisms: string[]; // AO3
   eduqasExamTip: string;
   relevanceToVideo: string;
+  url?: string;
 }
 
 export interface GlossaryItem {
