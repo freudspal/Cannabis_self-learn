@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CORE_STUDIES } from '../data/studies';
 import { ResearchStudy } from '../types';
-import { BookOpen, Search, CheckCircle, XCircle, Sparkles, AlertCircle, Award, Lightbulb } from 'lucide-react';
+import { BookOpen, Search, CheckCircle, XCircle, Sparkles, AlertCircle, Award, Lightbulb, ExternalLink } from 'lucide-react';
 
 interface StudiesLibraryProps {
   initialStudyId?: string;
@@ -30,6 +30,12 @@ export const StudiesLibrary: React.FC<StudiesLibraryProps> = ({ initialStudyId }
     s.year.toString().includes(searchTerm) ||
     s.keyFindings.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const getStudyUrl = (study: ResearchStudy): string => {
+    if (study.url) return study.url;
+    const query = `${study.authors} ${study.year} ${study.fullTitle}`;
+    return `https://scholar.google.com/scholar?q=${encodeURIComponent(query)}`;
+  };
 
   return (
     <div className="space-y-6">
@@ -94,8 +100,19 @@ export const StudiesLibrary: React.FC<StudiesLibraryProps> = ({ initialStudyId }
                     {study.fullTitle}
                   </p>
 
-                  <div className="mt-2 text-[11px] text-amber-300 font-mono line-clamp-1">
-                    ★ {study.keyFindings.substring(0, 80)}...
+                  <div className="mt-2 text-[11px] text-amber-300 font-mono flex items-center justify-between gap-2">
+                    <span className="line-clamp-1 flex-1">★ {study.keyFindings.substring(0, 70)}...</span>
+                    <a
+                      href={getStudyUrl(study)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-950 hover:bg-emerald-900 border border-emerald-700/60 text-emerald-300 font-mono text-[10px] font-bold shrink-0 transition-colors"
+                      title="Open full paper or Google Scholar search"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                      <span>study link</span>
+                    </a>
                   </div>
                 </button>
               );
@@ -107,13 +124,26 @@ export const StudiesLibrary: React.FC<StudiesLibraryProps> = ({ initialStudyId }
         <div className="lg:col-span-7 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-6">
           {/* Study Header */}
           <div className="border-b border-slate-800 pb-4">
-            <div className="flex items-center justify-between gap-2">
-              <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-md border border-emerald-800">
-                Study Reference #{selectedStudy.year}
-              </span>
-              <span className="text-xs font-mono text-slate-400">
-                WJEC Eduqas Component 3
-              </span>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-md border border-emerald-800">
+                  Study Reference #{selectedStudy.year}
+                </span>
+                <span className="text-xs font-mono text-slate-400 hidden sm:inline">
+                  WJEC Eduqas Component 3
+                </span>
+              </div>
+
+              {/* Prominent Study Link Button */}
+              <a
+                href={getStudyUrl(selectedStudy)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-mono font-bold text-xs shadow-md hover:shadow-emerald-500/20 transition-all cursor-pointer active:scale-95"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>study link</span>
+              </a>
             </div>
             <h3 className="text-2xl font-display font-bold text-white mt-2">
               {selectedStudy.authors} ({selectedStudy.year})
