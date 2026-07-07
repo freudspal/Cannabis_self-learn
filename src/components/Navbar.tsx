@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { TabType } from '../types';
 import { reggaeAudio } from '../utils/audioEngine';
+import reggaeHeroImg from '../assets/images/reggae_cannabis_hero_1783062896335.jpg';
 import { 
   Dna, 
   Activity, 
@@ -77,7 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, openQui
         {/* Background Reggae Hero Artwork - Enhanced High Visibility */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <img
-            src="/src/assets/images/reggae_cannabis_hero_1783062896335.jpg"
+            src={reggaeHeroImg}
             alt="Reggae Cannabis Neural Art"
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover object-[center_30%] opacity-90 filter brightness-110 contrast-110"
